@@ -44,14 +44,14 @@ This function works well when temperature is between 30 degrees and 60 degrees, 
 To pull the image:
 
 ```
-docker pull https://hub.docker.com/r/justinhimself/fanoverlord
+docker pull https://hub.docker.com/r/justinhimself/better-fanoverlord
 ```
 
 To start the container:
 
 ```
 docker run \
-    --name fanoverlord \
+    --name better-fanoverlord \
     --restart always \
     --network host \
     -e CPU_NUM=2 \
@@ -59,7 +59,7 @@ docker run \
     -e IPMI_USER="root" \
     -e IPMI_PW="calvin"
     -e SPEED_FUNC="exp(0.075 * t) - 0.01 * t**2 + 10" \
-    -d justinhimself/fanoverlord
+    -d justinhimself/better-fanoverlord
 ```
 
 

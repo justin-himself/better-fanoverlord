@@ -11,8 +11,8 @@ on:
     - cron: '0 0 2 1 *'
   push:
     branches: [ master ]
-     Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+  #   Publish semver tags as releases.
+  #  tags: [ 'v*.*.*' ]
   #pull_request:
     #branches: [ master ]
 
