@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/justin-himself/docker-autobuild/master/fanoverlord/icon.png" width="40%" height="40%" alt="FanOverlord">
+    <img src="https://raw.githubusercontent.com/justin-himself/better-fanoverlord/master/icon.png" width="40%" height="40%" alt="FanOverlord">
 </p>
 
 # (Better) FanOverlord
