@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 ENV CPU_NUM=1
-ENV TEMP_FUNC="exp(0.075 * t) - 0.01 * t**2 + 10"
+ENV SPEED_FUNC="exp(0.075 * t) - 0.01 * t**2 + 10"
 
 # Update the base image
 RUN apk -U upgrade
