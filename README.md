@@ -51,7 +51,9 @@ Therefore, I can set the following enviroment variable:
 -e TIME_COND="t.hour in [23,0,1,2,3,4,5,6,7,8,9]"
 ```
 
-notice that, `t` equals to `datetime.now().time()`, and only when the condition evaluates to true, fanoverlord is enabled. Otherwise fanoverlord gives control back to system and wait one miniute to check again.
+Notice that, `t` equals to `datetime.now().time()`, and only when the condition evaluates to true, fanoverlord is enabled. Otherwise fanoverlord gives control back to system and wait one miniute to check again.
+
+If you don't care about time conditon and want fanoverlord to be always enabled, set `TIME_COND` to `1` to always enable fanoverlord.
 
 ### Pull the image and Start the container
 
