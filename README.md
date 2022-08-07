@@ -62,7 +62,7 @@ docker run \
     -e IPMI_HOST="192.168.0.120" \
     -e IPMI_USER="root" \
     -e IPMI_PW="calvin" \
-    -e SPEED_FUNC="exp(0.075 * t) - 0.01 * t**2 + 10" \
+    -e SPEED_FUNC="tanh((t-55)/10)*40 + 50" \
     -d justinhimself/better-fanoverlord
 ```
 
