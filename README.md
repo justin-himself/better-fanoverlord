@@ -41,7 +41,17 @@ This function works well when temperature is between 30 degrees and 80 degrees, 
     <img src="https://user-images.githubusercontent.com/73123028/183273680-dc27dbf4-04e1-4ef7-b26c-606fb6a75622.png" width="40%" height="40%">
 </p>
 
+### Choose your time condition
 
+`TIME_COND` is an argument that sets the condition when fanoverlord should enabled according to time. This is to suit different usage senarios. For example, I only want fanoverlord to be enabled when I'm asleep to lower the fan noise to minimum, but I want the system manages fan for me at day for tasks with heavy CPU consumption. 
+
+Therefore, I can set the following enviroment variable:
+
+```
+-e TIME_COND="t.hour in [23,0,1,2,3,4,5,6,7,8,9]"
+```
+
+notice that, `t` equals to `datetime.now().time()`, and only when the condition evaluates to true, fanoverlord is enabled. Otherwise fanoverlord gives control back to system and wait one miniute to check again.
 
 ### Pull the image and Start the container
 
@@ -56,13 +66,15 @@ To start the container:
 ```
 docker run \
     --name better-fanoverlord \
-    --restart always \
+    --restart on-failure \
     --network host \
+    -e TZ=Asia/Shanghai \
     -e CPU_NUM=2 \
     -e IPMI_HOST="192.168.0.120" \
     -e IPMI_USER="root" \
     -e IPMI_PW="calvin" \
     -e SPEED_FUNC="tanh((t-55)/10)*40 + 50" \
+    -e TIME_COND=1 \
     -d justinhimself/better-fanoverlord
 ```
 
