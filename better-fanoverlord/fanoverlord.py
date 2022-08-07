@@ -1,14 +1,15 @@
 from inspect import _void
 from operator import is_
 import os
-import atexit
 import logging
 import subprocess
 import time
-from datetime import datetime
 from math import *
+from datetime import datetime
+from register_exit_fun import register_exit_fun
 
 # Env Variables
+TZ        = os.getenv('TZ', "Asia/Shanghai")
 CPU_NUM   = int(os.getenv('CPU_NUM', 1))
 FAN_NUM   = int(os.getenv('FAN_NUM', 1))
 SPEED_FUNC = os.getenv('SPEED_FUNC', "tanh((t-55)/10)*40 + 50")
@@ -75,6 +76,7 @@ def calc_fan_speed(t : int):
 def is_fanoverlord_enabled(t : datetime.time):
     return bool(eval(TIME_COND))
 
+@register_exit_fun
 def on_exit():
     logging.warning("Exiting... Give over control to system.")
     set_fan_control(isTakeover=False)
@@ -83,7 +85,7 @@ def main():
 
     # Init
     logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(message)s', datefmt='%d-%b-%y %H:%M:%S')
-    atexit.register(on_exit)
+    os.system("cp /usr/share/zoneinfo/" + TZ + " /etc/localtime")
 
     # Main Loop
 
