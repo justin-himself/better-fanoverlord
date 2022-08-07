@@ -12,11 +12,22 @@ IPMI_HOST = os.getenv('IPMI_HOST', "192.168.0.120")
 IPMI_USER = os.getenv('IPMI_USER', "root")
 IPMI_PW   = os.getenv('IPMI_PW', "calvin")
 
-# Constants
-MAX_CPU_TEMP = 80
+# Commands
 CMD_PREFIX = "ipmitool -I lanplus -H " + IPMI_HOST + " -U " + IPMI_USER + " -P " + IPMI_PW + " "
 FAN_SPEED_PREFIX = "raw 0x30 0x30 0x02 0xff "
 FAN_CONTROL_PREFIX = "raw 0x30 0x30 0x01 "
+
+
+# The program terminates itself and give 
+# back control if exceeding this temperature
+MAX_CPU_TEMP = 80
+
+# The fan speed is kept constant if 
+# the current temperature is within 
+# +- VIBRANR_RANGE degrees of the
+# average of last VIBRANT_COUNT times
+VIBRANT_RANGE = 3
+VIBRANT_COUNT = 5
 
 # Functions
 
@@ -47,11 +58,20 @@ def main():
     set_fan_control(isTakeover=True)
     atexit.register(on_exit)
 
+    temp_history = [50 for i in range(0,5)]
+    
     while True:
         try:
             current_cpu_temp = max(get_cpu_temp())
             current_fan_speed = get_fan_speed(current_cpu_temp)
-            set_fan_speed(current_fan_speed)
+               
+            temp_history.pop(0)
+            temp_history.push(current_cpu_temp)
+            
+            if abs(sum(temp_history) / len(temp_history) - current_cpu_temp) > VIBRANT_RANGE:
+                set_fan_speed(current_fan_speed)
+            
+            
         except Exception as e:
             logging.error(e)
             on_exit()
