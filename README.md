@@ -36,7 +36,7 @@ The default function is  <img src="https://user-images.githubusercontent.com/731
 This function works well when temperature is between 30 degrees and 80 degrees, and provides optimal power consumption in this range.
 
 <p align="center">
-    <img  alt="image" src="https://user-images.githubusercontent.com/73123028/183273680-dc27dbf4-04e1-4ef7-b26c-606fb6a75622.png" max-width="40%" max-height="40%">
+    <img src="https://user-images.githubusercontent.com/73123028/183273680-dc27dbf4-04e1-4ef7-b26c-606fb6a75622.png" width="40%" height="40%">
 </p>
 
 
