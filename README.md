@@ -25,7 +25,7 @@ The script will give back the fan control to BIOS when force exit or malfunction
  - [Set IP Address for iDRAC and ensure docker can communicate with it](https://docs.extrahop.com/current/configure-i-drac/)
  - [Enable IPMI in the iDRAC ](http://www.fucking-it.com/articles/dell-idrac/214-dell-idrac-configure-ipmi)
 
-### Choose Your TEMP-SPEED Function
+### Choose Your TEMP-RPM Function
 
 To make your fan speed adjustment as smooth as possible, you should choose a function that maps the relationship between CPU temperature and fan speed. The function is expected to have these features:
 
