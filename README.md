@@ -32,12 +32,14 @@ To make your fan speed adjustment as smooth as possible, you should choose a fun
 - Continous                     -       So the transition is smooth
 - Monotonically increasing      -       So the temperature always converages
 
-The default function is  <img src="https://user-images.githubusercontent.com/73123028/174479239-71d1a8d3-6518-4114-8d0f-60566024f360.png" width="20%" height="20%">, where s is fan speed and t is temperature.   
-This function works well when temperature is between 30 degrees and 60 degrees, and provides relatively low power consumption in this range.
+The default function is  <img src="https://user-images.githubusercontent.com/73123028/183273815-4749f2b3-34d6-4d1f-8970-4e7fd6d5eed9.png" width="20%" height="20%">, where s is fan speed and t is temperature.   
+This function works well when temperature is between 30 degrees and 80 degrees, and provides optimal power consumption in this range.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/73123028/174478859-e08aa5e2-9161-47b4-9039-cc66f239d4ae.png" width="40%" height="40%">
+    <img width="975" alt="image" src="https://user-images.githubusercontent.com/73123028/183273680-dc27dbf4-04e1-4ef7-b26c-606fb6a75622.png" max-width="40%" max-height="40%">
 </p>
+
+
 
 ### Pull the image and Start the container
 
