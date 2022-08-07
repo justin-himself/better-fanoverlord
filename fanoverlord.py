@@ -68,7 +68,7 @@ def main():
             temp_history.pop(0)
             temp_history.push(current_cpu_temp)
             
-            if abs(sum(temp_history) / len(temp_history) - current_cpu_temp)) > VIBRANT_RANGE:
+            if abs(sum(temp_history) / len(temp_history) - current_cpu_temp) > VIBRANT_RANGE:
                 set_fan_speed(current_fan_speed)
             
             
