@@ -13,7 +13,7 @@ IPMI_USER = os.getenv('IPMI_USER', "root")
 IPMI_PW   = os.getenv('IPMI_PW', "calvin")
 
 # Constants
-MAX_CPU_TEMP = 60
+MAX_CPU_TEMP = 80
 CMD_PREFIX = "ipmitool -I lanplus -H " + IPMI_HOST + " -U " + IPMI_USER + " -P " + IPMI_PW + " "
 FAN_SPEED_PREFIX = "raw 0x30 0x30 0x02 0xff "
 FAN_CONTROL_PREFIX = "raw 0x30 0x30 0x01 "
