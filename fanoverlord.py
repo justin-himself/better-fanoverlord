@@ -7,7 +7,7 @@ from math import *
 
 # Env Variables
 CPU_NUM   = int(os.getenv('CPU_NUM', 1))
-SPEED_FUNC = os.getenv('SPEED_FUNC', "exp(0.075 * t) - 0.01 * t**2 + 10")
+SPEED_FUNC = os.getenv('SPEED_FUNC', "tanh((t-55)/10)*40 + 50")
 IPMI_HOST = os.getenv('IPMI_HOST', "192.168.0.120")
 IPMI_USER = os.getenv('IPMI_USER', "root")
 IPMI_PW   = os.getenv('IPMI_PW', "calvin")
